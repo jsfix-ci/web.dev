@@ -192,7 +192,7 @@ export const setLanguage = store.action((state, language) => {
     expires: 10 * 365, // 10 years
     samesite: 'strict',
   };
-  cookies.set('firebase-language-override', language, options);
+  cookies.set('firebase-language-override', JSON.stringify(language), options);
   if (language !== state.currentLanguage) {
     location.reload();
   }
